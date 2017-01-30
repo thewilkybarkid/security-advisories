@@ -128,7 +128,8 @@ final class Validate extends Command
                                 break;
                             }
                         }
-                        if (!$found) {
+                        // Temporary expception for #161 - magento/magento2ce package is not provided by packagist
+                        if (!$found && 'magento/magento2ce' != $composerPackage) {
                             $messages[$path][] = sprintf('Invalid composer package (not found in repository %s)', $data['composer-repository']);
                         }
                     }
